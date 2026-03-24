@@ -258,14 +258,7 @@ function BulkPanel() {
       {/* Left controls */}
       <div className="w-full lg:w-72 flex flex-col gap-4 flex-shrink-0">
 
-        {/* Format hint */}
-        <div className="flex flex-col gap-1.5 text-xs bg-amber-50 border border-amber-200 rounded-2xl p-3 font-mono">
-          <span className="text-amber-800 font-black text-[10px] uppercase tracking-widest mb-1 non-mono" style={{fontFamily:"sans-serif"}}>Supported Formats</span>
-          <span><span className="text-amber-600 font-bold">Range:</span> a001-a123 <span className="text-slate-400">or</span> a001 to a123</span>
-          <span><span className="text-amber-600 font-bold">CSV:</span>   code1,code2,code3</span>
-          <span><span className="text-amber-600 font-bold">Lines:</span> one value per line</span>
-          <span><span className="text-amber-600 font-bold">Mixed:</span> combine any above</span>
-        </div>
+    
 
         {/* Input */}
         <div>
@@ -277,7 +270,7 @@ function BulkPanel() {
               </span>
             )}
           </div>
-          <textarea
+          <input
             value={inputText}
             onChange={e => setInputText(e.target.value)}
             placeholder={"a001-a050\nor\ncode01,code02,code03"}
@@ -294,7 +287,6 @@ function BulkPanel() {
               { label: "001–020",      val: "001-020" },
               { label: "a001–a123",    val: "a001-a123" },
               { label: "A001 to A050", val: "A001 to A050" },
-              { label: "CSV",          val: "QR001,QR002,QR003,QR004,QR005" },
               { label: "Mixed",        val: "ITEM001-ITEM005\nSPECIAL,VIP,GUEST" },
             ].map(ex => (
               <button key={ex.label} onClick={() => setInputText(ex.val)}
@@ -306,21 +298,10 @@ function BulkPanel() {
         </div>
 
         {/* Style */}
-        <div className="border-t border-slate-100 pt-4 flex flex-col gap-3">
+        <div className="border-t border-slate-100 pt-0 flex flex-col gap-3">
           <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Style</p>
 
-          <div className="grid grid-cols-2 gap-3">
-            <label className="flex flex-col gap-1">
-              <span className="text-[10px] font-bold text-slate-400">Dot Color</span>
-              <input type="color" value={dotColor} onChange={e => setDotColor(e.target.value)}
-                className="w-full h-9 rounded-xl border-2 border-slate-200 cursor-pointer p-0.5" />
-            </label>
-            <label className="flex flex-col gap-1">
-              <span className="text-[10px] font-bold text-slate-400">Background</span>
-              <input type="color" value={bgColor} onChange={e => setBgColor(e.target.value)}
-                className="w-full h-9 rounded-xl border-2 border-slate-200 cursor-pointer p-0.5" />
-            </label>
-          </div>
+        
 
           <div>
             <p className="text-[10px] font-bold text-slate-400 mb-1.5">Dot Style</p>
@@ -693,11 +674,10 @@ export default function App() {
         <div className="flex-1 rounded-3xl bg-white shadow-2xl overflow-hidden border border-slate-100">
 
           {/* Header */}
-          <div className="px-6 py-5 bg-gradient-to-r from-slate-900 to-slate-800 flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-amber-400 flex items-center justify-center font-black text-slate-900 text-sm">QR</div>
+          <div className="px-6 py-5 bg-gradient-to-r  ">
             <div>
-              <img src={appLogo} alt="QR Code Studio" />
-              <p className="text-slate-400 text-xs">Generate · Customize · Download</p>
+              <img src={appLogo} alt="QR Code Studio" className="bg-white w-auto h-20 object-contain"/>
+              <p className="text-slate-400 text-xs pl-2">Generate · Customize · Download</p>
             </div>
           </div>
 
