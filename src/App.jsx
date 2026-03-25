@@ -651,7 +651,7 @@ export default function App() {
     switch (qrType) {
       case "url":      return <input value={url} onChange={e => setUrl(e.target.value)} placeholder="https://example.com" className={inputCls} />;
       case "text":     return <textarea value={plainText} onChange={e => setPlainText(e.target.value)} placeholder="Your text…" rows={4} className={`${inputCls} resize-none`} />;
-      case "phone":    return <input value={phone} onChange={e => setPhone(e.target.value)} placeholder="+1 234 567 8900" type="tel" className={inputCls} />;
+      case "phone":    return <input value={phone} onChange={e => setPhone(e.target.value)} placeholder="+91 93456 78900" type="tel" className={inputCls} />;
       case "email":    return <input value={email} onChange={e => setEmail(e.target.value)} placeholder="hello@example.com" type="email" className={inputCls} />;
       case "sms":      return <div className="flex flex-col gap-2"><input value={smsPhone} onChange={e => setSmsPhone(e.target.value)} placeholder="Phone number" className={inputCls} /><input value={smsMsg} onChange={e => setSmsMsg(e.target.value)} placeholder="Message (optional)" className={inputCls} /></div>;
       case "wifi":     return <div className="flex flex-col gap-2"><input value={wifiSSID} onChange={e => setWifiSSID(e.target.value)} placeholder="Network name (SSID)" className={inputCls} /><input value={wifiPwd} onChange={e => setWifiPwd(e.target.value)} placeholder="Password" className={inputCls} type="password" /><select value={wifiEnc} onChange={e => setWifiEnc(e.target.value)} className={inputCls}><option value="WPA">WPA / WPA2</option><option value="WEP">WEP</option><option value="nopass">No Password</option></select></div>;
@@ -713,7 +713,10 @@ export default function App() {
               </div>
 
               <div className="p-5 max-h-[60vh] overflow-y-auto">
-
+  <div>
+                      <SectionLabel>Details</SectionLabel>
+                      {renderContentInputs()}
+                    </div>
                 {/* Content */}
                 {activeTab === 0 && (
                   <div className="flex flex-col gap-5">
@@ -732,10 +735,7 @@ export default function App() {
                         ))}
                       </div>
                     </div>
-                    <div>
-                      <SectionLabel>Details</SectionLabel>
-                      {renderContentInputs()}
-                    </div>
+                 
                   </div>
                 )}
 
